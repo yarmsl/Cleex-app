@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import { Text, StyleSheet, View } from 'react-native';
-import { Button, Input } from 'react-native-elements';
+import { StyleSheet, View } from 'react-native';
+import { Button, Input, Icon } from 'react-native-elements';
 import { useAuth } from '../context/AuthCtx';
 import { useTheme } from '../context/ThemeCtx';
 import { getDataByPost } from '../lib/fetch';
@@ -37,7 +37,6 @@ const SignIn = () => {
         let logdata = {login: login, pass: pass};
         getDataByPost('https://cleex.ru/appleAuch', logdata)
         .then(data => {
-            console.log(data);
             if (data !== undefined) {
                 if(data.idUsers) {
                     setSession(data.idUsers);
@@ -48,6 +47,8 @@ const SignIn = () => {
                 } else if (data.Message === 'No isset password.') {
                     setErrorPass('Неверный пароль');
                 }
+            } else {
+                console.error('server dead');
             }
         });
     }
@@ -67,7 +68,11 @@ const SignIn = () => {
                         onChangeText={setPass}
                         label='Пароль'
                         secureTextEntry={visible}
-                        rightIcon={{type: 'entypo', name: 'eye'}}
+                        rightIcon={<Icon 
+                            onPress={() => setVisible(p => !p)}
+                            name={visible ? 'eye' : 'eye-with-line'} 
+                            type='entypo'
+                            />}
                         errorMessage={errorPass}
                     />
                     <Button 

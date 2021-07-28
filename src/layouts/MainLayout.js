@@ -22,7 +22,7 @@ const MainLayout = ({children}) => {
     },
     wrapper: {
       paddingHorizontal: 16,
-      paddingVertical: 16,
+      paddingBottom: 16
     }
   });
 

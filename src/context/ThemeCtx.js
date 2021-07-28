@@ -28,6 +28,8 @@ const ThemeProvider = ({children}) => {
     useEffect(() => {
         if (isAuth == false) {
             switchTheme(CLEEX);
+        } else {
+            switchTheme(TOPKA) // need to switch themes by database signal
         }
     }, [isAuth])
 

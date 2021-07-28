@@ -38,6 +38,7 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Cleex/main.m; sourceTree = "<group>"; };
 		1BAC3E3B1A2C55DCC72B2AC6 /* Pods-Cleex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cleex.release.xcconfig"; path = "Target Support Files/Pods-Cleex/Pods-Cleex.release.xcconfig"; sourceTree = "<group>"; };
 		3E9DAE0285D05883F91AF528 /* Pods-Cleex-CleexTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cleex-CleexTests.release.xcconfig"; path = "Target Support Files/Pods-Cleex-CleexTests/Pods-Cleex-CleexTests.release.xcconfig"; sourceTree = "<group>"; };
+		54108E3026B164AD00A382C9 /* Cleex.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Cleex.entitlements; path = Cleex/Cleex.entitlements; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Cleex/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83DC73B1F91AED5193DFE2A9 /* Pods-Cleex-CleexTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cleex-CleexTests.debug.xcconfig"; path = "Target Support Files/Pods-Cleex-CleexTests/Pods-Cleex-CleexTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB96038F70F220683CC0802F /* libPods-Cleex-CleexTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cleex-CleexTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +87,7 @@
 		13B07FAE1A68108700A75B9A /* Cleex */ = {
 			isa = PBXGroup;
 			children = (
+				54108E3026B164AD00A382C9 /* Cleex.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -483,7 +485,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Cleex/Cleex.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64HC6HGXN4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Cleex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -495,7 +499,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.cleex.cleexapp;
 				PRODUCT_NAME = Cleex;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -509,7 +513,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Cleex/Cleex.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64HC6HGXN4;
 				INFOPLIST_FILE = Cleex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -520,7 +526,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.cleex.cleexapp;
 				PRODUCT_NAME = Cleex;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

@@ -37,8 +37,6 @@ const Account = () => {
         },
         });
 
-    console.log('Barmen: ',userId);
-
     return (
         <View style={styles.container}>
             <View style={styles.top}>

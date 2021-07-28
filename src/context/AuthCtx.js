@@ -34,11 +34,12 @@ const AuthProvider = ({children}) => {
           const {username} = await Keychain.getGenericPassword();
           if (username) {
             setUserId(username);
+            logIn();
           } else {
             console.log('no ID');
           }
         } catch (error) {
-          console.log("Keychain couldn't be accessed!", error);
+          console.log("session couldn't be accessed!", error);
         }
       };
 
