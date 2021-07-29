@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { ImageBackground, StyleSheet, View, StatusBar, SafeAreaView } from 'react-native';
+import { ImageBackground, StyleSheet, View, StatusBar, SafeAreaView, ScrollView } from 'react-native';
 import SuperHeader from '../components/SuperHeader';
 import { useTheme } from '../context/ThemeCtx';
 
@@ -27,17 +27,17 @@ const MainLayout = ({children}) => {
   });
 
     return (
-        <View style={styles.container}>
-          <StatusBar
-            barStyle={theme.type === 'dark' ? 'light-content' : 'dark-content'}
-          />
-          <ImageBackground style={styles.bg} source={theme.backgroundImage} resizeMode='cover'>
-          <SuperHeader/>
-            <View style={styles.wrapper}>
-              {children}
-            </View>
-          </ImageBackground>
-        </View>
+        <SafeAreaView style={styles.container}>
+			<StatusBar
+				barStyle={theme.type === 'dark' ? 'light-content' : 'dark-content'}
+			/>
+			<ImageBackground style={styles.bg} source={theme.backgroundImage} resizeMode='cover'>
+			<SuperHeader/>
+				<View style={styles.wrapper}>
+					{children}
+				</View>
+			</ImageBackground>
+        </SafeAreaView>
     )
 }
 
