@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTheme } from '../context/ThemeCtx';
-import {  StyleSheet, Text, View } from 'react-native';
+import {  StyleSheet, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { useLocation } from 'react-router';
 import { useHistory } from 'react-router-native';
@@ -12,13 +12,11 @@ const SuperHeader = () => {
     const styles = StyleSheet.create({
         header: {
             width: '100%',
-            height: 80,
-            padding: 10,
+            height: 50,
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'space-between',
-            paddingTop: 45,
-            paddingHorizontal: 20,
+            paddingHorizontal: 15,
             backgroundColor: theme.headerColor,
             },
         sideblock: {
