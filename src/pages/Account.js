@@ -1,9 +1,11 @@
 import React from 'react';
-import { Image, View, StyleSheet } from "react-native";
+import { Image, View, StyleSheet, ScrollView } from "react-native";
 import { Button } from 'react-native-elements/dist/buttons/Button';
 import { useHistory } from 'react-router-native';
 import { useAuth } from '../context/AuthCtx';
 import { useTheme } from '../context/ThemeCtx';
+import { vertical } from '../UI/gradients';
+import LinearGradient from 'react-native-linear-gradient';
 
 const Account = () => {
     const {logOut, destroySession, userId} = useAuth();
@@ -45,27 +47,35 @@ const Account = () => {
             <View style={styles.bottom}>
                 <Button 
                     buttonStyle={theme.button.light}
-                    titleStyle={theme.button.light.title}
+                    titleStyle={theme.button.lightTitle}
                     title='Выбрать столик на сегодня'
                     onPress={() => router.push('/tables')}
+                    ViewComponent={LinearGradient}
+                    linearGradientProps={vertical.grey}
                 />
                 <Button 
                     buttonStyle={theme.button.light}
-                    titleStyle={theme.button.light.title}
+                    titleStyle={theme.button.lightTitle}
                     title='Настройка профиля'
                     onPress={() => router.push('/settings')}
+                    ViewComponent={LinearGradient}
+                    linearGradientProps={vertical.grey}
                 />
                 <Button 
                     buttonStyle={theme.button.light}
-                    titleStyle={theme.button.light.title}
+                    titleStyle={theme.button.lightTitle}
                     title='Вывод средств'
                     onPress={() => router.push('/payback')}
+                    ViewComponent={LinearGradient}
+                    linearGradientProps={vertical.grey}
                 />
                 <Button 
                     buttonStyle={theme.button.light}
-                    titleStyle={theme.button.light.title}
+                    titleStyle={theme.button.lightTitle}
                     title='Выйти'
-                    onPress={() => {destroySession().then(() => logOut())}}    
+                    onPress={() => {destroySession().then(() => logOut())}}
+                    ViewComponent={LinearGradient}
+                    linearGradientProps={vertical.grey}    
                 />
             </View>
         </View>

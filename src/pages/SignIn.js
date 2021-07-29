@@ -11,7 +11,8 @@ const styles = StyleSheet.create({
         height: '100%',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
+        paddingVertical: 32,
         },
     signin: {
         width: '100%',
@@ -68,6 +69,7 @@ const SignIn = () => {
                         onChangeText={setPass}
                         label='Пароль'
                         secureTextEntry={visible}
+                        keyboardType='numeric'
                         rightIcon={<Icon 
                             onPress={() => setVisible(p => !p)}
                             name={visible ? 'eye' : 'eye-with-line'} 
