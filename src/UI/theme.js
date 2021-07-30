@@ -5,7 +5,7 @@ import { Text } from "react-native";
 export const design = {
     cleex: {
         type: 'light',
-        headerColor: '#FFFFFF',
+        headerColor: '#fff',
         headerLogo: <Logo/>,
         backgroundColor: '#F5F2ED',
         backgroundImage: require('../images/bgw.png'),

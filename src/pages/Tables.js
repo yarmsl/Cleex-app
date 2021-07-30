@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { Text, ScrollView, View } from "react-native";
 import { useTheme } from '../context/ThemeCtx';
-import { topkaTables as styles } from '../UI/topka_tables_ss';
-import { vertical as gradients } from '../UI/gradients';
+import { topkaTables as styles } from '../UI/topka/Tables_StyleSheet';
+import { vertical as gradients } from '../UI/topka/gradients';
 import { Button } from 'react-native-elements/dist/buttons/Button';
 import { useAuth } from '../context/AuthCtx';
 import LinearGradient from 'react-native-linear-gradient';
@@ -69,27 +69,27 @@ const Tables = () => {
 
     function localNotif(soundName) {
         PushNotification.localNotification({
-        //   /* Android Only Properties */
-        //   channelId: soundName ? 'sound-channel-id' : 'default-channel-id',
-        //   ticker: 'My Notification Ticker', // (optional)
-        //   autoCancel: true, // (optional) default: true
-        //   largeIcon: 'ic_launcher', // (optional) default: "ic_launcher"
-        //   smallIcon: 'ic_notification', // (optional) default: "ic_notification" with fallback for "ic_launcher"
-        //   bigText: 'My big text that will be shown when notification is expanded', // (optional) default: "message" prop
-        //   subText: 'This is a subText', // (optional) default: none
-        //   color: 'red', // (optional) default: system default
-        //   vibrate: true, // (optional) default: true
-        //   vibration: 300, // vibration length in milliseconds, ignored if vibrate=false, default: 1000
-        //   tag: 'some_tag', // (optional) add tag to message
-        //   group: 'group', // (optional) add group to message
-        //   groupSummary: false, // (optional) set this notification to be the group summary for a group of notifications, default: false
-        //   ongoing: false, // (optional) set whether this is an "ongoing" notification
-        //   actions: ['Yes', 'No'], // (Android only) See the doc for notification actions to know more
-        //   invokeApp: true, // (optional) This enable click on actions to bring back the application to foreground or stay in background, default: true
+          /* Android Only Properties */
+          channelId: soundName ? 'sound-channel-id' : 'default-channel-id',
+          ticker: 'My Notification Ticker', // (optional)
+          autoCancel: true, // (optional) default: true
+          largeIcon: 'ic_launcher', // (optional) default: "ic_launcher"
+          smallIcon: 'ic_notification', // (optional) default: "ic_notification" with fallback for "ic_launcher"
+          bigText: 'My big text that will be shown when notification is expanded', // (optional) default: "message" prop
+          subText: 'This is a subText', // (optional) default: none
+          color: 'red', // (optional) default: system default
+          vibrate: true, // (optional) default: true
+          vibration: 300, // vibration length in milliseconds, ignored if vibrate=false, default: 1000
+          tag: 'some_tag', // (optional) add tag to message
+          group: 'group', // (optional) add group to message
+          groupSummary: false, // (optional) set this notification to be the group summary for a group of notifications, default: false
+          ongoing: false, // (optional) set whether this is an "ongoing" notification
+          actions: ['Yes', 'No'], // (Android only) See the doc for notification actions to know more
+          invokeApp: true, // (optional) This enable click on actions to bring back the application to foreground or stay in background, default: true
     
-        //   when: null, // (optionnal) Add a timestamp pertaining to the notification (usually the time the event occurred). For apps targeting Build.VERSION_CODES.N and above, this time is not shown anymore by default and must be opted into by using `showWhen`, default: null.
-        //   usesChronometer: false, // (optional) Show the `when` field as a stopwatch. Instead of presenting `when` as a timestamp, the notification will show an automatically updating display of the minutes and seconds since when. Useful when showing an elapsed time (like an ongoing phone call), default: false.
-        //   timeoutAfter: null, // (optional) Specifies a duration in milliseconds after which this notification should be canceled, if it is not already canceled, default: null
+          when: null, // (optionnal) Add a timestamp pertaining to the notification (usually the time the event occurred). For apps targeting Build.VERSION_CODES.N and above, this time is not shown anymore by default and must be opted into by using `showWhen`, default: null.
+          usesChronometer: false, // (optional) Show the `when` field as a stopwatch. Instead of presenting `when` as a timestamp, the notification will show an automatically updating display of the minutes and seconds since when. Useful when showing an elapsed time (like an ongoing phone call), default: false.
+          timeoutAfter: null, // (optional) Specifies a duration in milliseconds after which this notification should be canceled, if it is not already canceled, default: null
     
           /* iOS only properties */
           category: '', // (optional) default: empty string
@@ -106,7 +106,7 @@ const Tables = () => {
       }
 
     return (
-        <ScrollView style={styles.container}>
+        <View style={styles.container}>
             {console.log(selectedTables)}
             <View style={styles.tableBox}>
                 <View style={styles.tableLeft}>
@@ -172,7 +172,7 @@ const Tables = () => {
                     onPress={() => localNotif()}
                 />
             </View>
-        </ScrollView>
+        </View>
     )
 }
 

@@ -21,6 +21,9 @@ const MainLayout = ({children}) => {
       height: '100%'
     },
     wrapper: {
+		width: '100%',
+		minHeight: '90%',
+		height: 'auto',
       paddingHorizontal: 16,
       paddingBottom: 16
     }
@@ -30,12 +33,13 @@ const MainLayout = ({children}) => {
         <SafeAreaView style={styles.container}>
 			<StatusBar
 				barStyle={theme.type === 'dark' ? 'light-content' : 'dark-content'}
+				backgroundColor={theme.headerColor}
 			/>
 			<ImageBackground style={styles.bg} source={theme.backgroundImage} resizeMode='cover'>
 			<SuperHeader/>
-				<View style={styles.wrapper}>
+				<ScrollView contentContainerStyle={styles.wrapper}>
 					{children}
-				</View>
+				</ScrollView>
 			</ImageBackground>
         </SafeAreaView>
     )

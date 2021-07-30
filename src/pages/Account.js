@@ -4,7 +4,7 @@ import { Button } from 'react-native-elements/dist/buttons/Button';
 import { useHistory } from 'react-router-native';
 import { useAuth } from '../context/AuthCtx';
 import { useTheme } from '../context/ThemeCtx';
-import { vertical } from '../UI/gradients';
+import { vertical } from '../UI/topka/gradients';
 import LinearGradient from 'react-native-linear-gradient';
 
 const Account = () => {
@@ -14,7 +14,7 @@ const Account = () => {
     const styles = StyleSheet.create({
         container: {
             width: '100%',
-            height: '90%',
+            minHeight: '90%',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center'
