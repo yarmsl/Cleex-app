@@ -9,7 +9,7 @@ export const styles = {
 		 paddingVertical: 32,
 		 },
 	waiter: {
-		 width: '100%',
+		 minWidth: '100%',
 		 marginBottom: 10,
 		 display: 'flex',
 		 flexDirection: 'column',
@@ -19,33 +19,76 @@ export const styles = {
 		 container: {
 			  width: 120,
 			  height: 120,
+			  shadowOffset: {width: 0, height: 4},
+			  shadowOpacity: 0.5,
+			  shadowRadius: 10
 		 },
 		 overlay: {
-			  borderRadius: 100
+			  borderRadius: 100,
+			  backgroundColor: '#78bbe1',
+		 },
+		 plus: {
+			transform: [{rotateZ: '0deg'}]
+		 },
+		 cross: {
+			transform: [{rotateZ: '45deg'}]
+		 },
+		 placeholder: {
+			width: '100%',
+			height: '100%',
+			display: 'flex',
+			alignItems: 'center',
+			justifyContent: 'center'
+		 },
+		 initials: {
+			color: '#fff',
+			fontSize: 40
 		 }
+	},
+	addphoto: {
+		backgroundColor: 'rgba(25,32,33,0.123)',
+		borderRadius: 50,
+		position: 'absolute',
+		top: -3,
+		right: -3
+	},
+	blackout: {
+		backgroundColor: 'rgba(25,32,33,0.5)',
+	},
+	photo: {
+		paddingVertical: 3
 	},
 	name: {
 		 color: '#fff',
 		 fontSize: 20,
 		 fontWeight: 'bold',
-		 marginVertical: 5
+		 marginVertical: 5,
+		 shadowOffset: {width: 0, height: 4},
+		 shadowOpacity: 0.5,
+		 shadowRadius: 10
 	},
 	motto: {
 		 color: '#fff',
 		 fontSize: 15,
 		 width: '80%',
 		 textAlign: 'center',
-		 marginVertical: 5
+		 marginVertical: 5,
+		 shadowOffset: {width: 0, height: 4},
+		 shadowOpacity: 0.5,
+		 shadowRadius: 10
 	},
 	form: {
-		 width: '100%',
+		 minWidth: '100%',
 		 backgroundColor: '#192021',
 		 borderRadius: 8,
 		 paddingHorizontal: 16,
 		 paddingVertical: 32,
 		 display: 'flex',
 		 flexDirection: 'column',
-		 alignItems: 'center'
+		 alignItems: 'center',
+		 shadowOffset: {width: 0, height: 4},
+		 shadowOpacity: 0.5,
+		 shadowRadius: 10
 	},
 	input: {
 		 inputContainer: {
@@ -67,7 +110,7 @@ export const styles = {
 		 title: {
 			  fontSize: 14,
 			  fontWeight: 'bold',
-			  color: '#000',
+			  color: '#fff',
 			  textTransform: 'uppercase',
 			  paddingHorizontal: 32,
 			  paddingVertical: 6
@@ -77,5 +120,5 @@ export const styles = {
 					color: '#000'
 			  }
 		 }
-	}
+	},
 };

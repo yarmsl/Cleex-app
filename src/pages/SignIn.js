@@ -20,12 +20,23 @@ const styles = StyleSheet.create({
 		borderRadius: 8,
 		paddingHorizontal: 16,
 		paddingVertical: 32,
+		shadowOffset: {width: 0, height: 0},
+        shadowOpacity: .25,
+        shadowRadius: 16
 	},
 	inputContainer: {
 		marginVertical: 5
 	},
 	rightIconContainer: {
 		marginRight: 2,
+	},
+	button: {
+		borderRadius: 4,
+		backgroundColor: '#AA9B71',
+		opacity: .8
+	},
+	buttonText: {
+		fontWeight: '700'
 	}
 });
 
@@ -89,7 +100,8 @@ const SignIn = () => {
 				/>
 				<Button
 					title='Войти'
-					type='outline'
+					buttonStyle={styles.button}
+					titleStyle={styles.buttonText}
 					onPress={e => handleLog(e)}
 				/>
 			</View>

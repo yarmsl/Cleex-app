@@ -1,5 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import { ImageBackground, StyleSheet, View, StatusBar, SafeAreaView, ScrollView } from 'react-native';
+import React from 'react';
+import { ImageBackground, StyleSheet, StatusBar, ScrollView } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import SafeAreaView from 'react-native-safe-area-view';
 import SuperHeader from '../components/SuperHeader';
 import { useTheme } from '../context/ThemeCtx';
 
@@ -14,7 +16,6 @@ const MainLayout = ({children}) => {
       backgroundColor: theme.backgroundColor,
       alignItems: 'center',
       justifyContent: 'center',
-      
     },
     bg: {
       width: '100%',
@@ -25,23 +26,25 @@ const MainLayout = ({children}) => {
 		minHeight: '90%',
 		height: 'auto',
       paddingHorizontal: 16,
-      paddingBottom: 16
+      
     }
   });
 
     return (
-        <SafeAreaView style={styles.container}>
-			<StatusBar
-				barStyle={theme.type === 'dark' ? 'light-content' : 'dark-content'}
-				backgroundColor={theme.headerColor}
-			/>
-			<ImageBackground style={styles.bg} source={theme.backgroundImage} resizeMode='cover'>
-			<SuperHeader/>
-				<ScrollView contentContainerStyle={styles.wrapper}>
-					{children}
-				</ScrollView>
-			</ImageBackground>
+      <SafeAreaProvider>
+        <SafeAreaView style={styles.container} forceInset={{ bottom: 'never' }}>
+          <StatusBar
+            barStyle={theme.type === 'dark' ? 'light-content' : 'dark-content'}
+            backgroundColor={theme.headerColor}
+          />
+          <ImageBackground style={styles.bg} source={theme.backgroundImage} resizeMode='cover'>
+            <SuperHeader/>
+            <ScrollView contentContainerStyle={styles.wrapper}>
+              {children}
+            </ScrollView>
+          </ImageBackground>
         </SafeAreaView>
+      </SafeAreaProvider>
     )
 }
 

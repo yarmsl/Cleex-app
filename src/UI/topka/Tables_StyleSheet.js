@@ -27,7 +27,10 @@ export const topkaTables = StyleSheet.create({
         borderRadius: 50,
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        shadowOffset: {width: 0, height: 4},
+        shadowOpacity: .5,
+        shadowRadius: 10
     },
     barText: {
         color: '#fff',
@@ -45,7 +48,10 @@ export const topkaTables = StyleSheet.create({
         width: 56,
         height: 56,
         borderRadius: 56,
-        marginVertical: 6
+        marginVertical: 6,
+        shadowOffset: {width: 0, height: 4},
+        shadowOpacity: .5,
+        shadowRadius: 10
     },
     tableLong: {
         width: 100,
