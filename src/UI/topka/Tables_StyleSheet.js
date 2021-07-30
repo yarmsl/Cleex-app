@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 export const topkaTables = StyleSheet.create({
     container: {
         width: '100%',
-        height: '90%',
+        height: 'auto',
         display: 'flex',
         },
     tableBox: {
