@@ -1,4 +1,3 @@
-
 export const styles = {
 	container: {
 		 width: '100%',
@@ -10,6 +9,7 @@ export const styles = {
 		 },
 	waiter: {
 		 minWidth: '100%',
+		 width: '100%',
 		 marginBottom: 10,
 		 display: 'flex',
 		 flexDirection: 'column',
@@ -21,11 +21,12 @@ export const styles = {
 			  height: 120,
 			  shadowOffset: {width: 0, height: 4},
 			  shadowOpacity: 0.5,
-			  shadowRadius: 10
+			  shadowRadius: 10,  
 		 },
 		 overlay: {
 			  borderRadius: 100,
 			  backgroundColor: '#78bbe1',
+			  
 		 },
 		 plus: {
 			transform: [{rotateZ: '0deg'}]
@@ -33,17 +34,6 @@ export const styles = {
 		 cross: {
 			transform: [{rotateZ: '45deg'}]
 		 },
-		 placeholder: {
-			width: '100%',
-			height: '100%',
-			display: 'flex',
-			alignItems: 'center',
-			justifyContent: 'center'
-		 },
-		 initials: {
-			color: '#fff',
-			fontSize: 40
-		 }
 	},
 	addphoto: {
 		backgroundColor: 'rgba(25,32,33,0.123)',
@@ -53,10 +43,10 @@ export const styles = {
 		right: -3
 	},
 	blackout: {
-		backgroundColor: 'rgba(25,32,33,0.5)',
+		backgroundColor: 'rgba(25,32,33,0.7)',
 	},
 	photo: {
-		paddingVertical: 3
+		paddingVertical: 8
 	},
 	name: {
 		 color: '#fff',
@@ -75,10 +65,11 @@ export const styles = {
 		 marginVertical: 5,
 		 shadowOffset: {width: 0, height: 4},
 		 shadowOpacity: 0.5,
-		 shadowRadius: 10
+		 shadowRadius: 10,
 	},
 	form: {
 		 minWidth: '100%',
+		 width: '100%',
 		 backgroundColor: '#192021',
 		 borderRadius: 8,
 		 paddingHorizontal: 16,
@@ -88,11 +79,12 @@ export const styles = {
 		 alignItems: 'center',
 		 shadowOffset: {width: 0, height: 4},
 		 shadowOpacity: 0.5,
-		 shadowRadius: 10
+		 shadowRadius: 10,
+		 elevation: 6
 	},
 	input: {
 		 inputContainer: {
-			  borderColor: '#78bbe1',
+			  borderColor:'#78bbe1',
 			  borderBottomWidth: 2,
 			  marginVertical: 6
 		 },

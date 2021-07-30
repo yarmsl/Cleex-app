@@ -1,8 +1,19 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Text, StyleSheet, ScrollView, BackHandler } from "react-native";
+import { useHistory } from 'react-router-native';
 
 const Payback = () => {
-    BackHandler.addEventListener('hardwareBackPress', () => console.log('Ill be back'))
+	 const router = useHistory();
+	 const back = () => {
+		 router.push('/');
+	 }
+	 useEffect(() => {
+		BackHandler.addEventListener('hardwareBackPress', back)
+		 return () => {
+			BackHandler.removeEventListener('hardwareBackPress', back)
+		 }
+	 }, [])
+    
     return (
         
         <Text>

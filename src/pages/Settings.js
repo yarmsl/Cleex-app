@@ -3,9 +3,9 @@ import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import { View, KeyboardAvoidingView, Text } from "react-native";
 import { Avatar, Input, Icon, Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
-import { initials } from '../lib/services';
 import { vertical } from '../UI/topka/gradients';
 import { styles } from '../UI/topka/Settings_StyleSheet';
+import AvatarPlaceholder from '../components/AvatarPlaceholder';
 
 const Settings = () => {
     const [photo, setPhoto] = useState();
@@ -13,7 +13,7 @@ const Settings = () => {
     const [motto, setMotto] = useState('');
     const [saveBtn, setSave] = useState(false);
     const [waiter, setWaiter] = useState({
-        name: 'Ярослав Макаров', 
+        name: '', 
         motto: 'Девиз Девиз Девиз девиз длинный девиз девиз', 
         // photo: require('../images/avatar.jpg')
     });
@@ -23,7 +23,7 @@ const Settings = () => {
         setMenu(p => !p)
     };
 
-    const uploadPhoto = () => {
+    const uploadPhoto = (where) => {
         const options = {
             mediaType: 'photo',
             maxWidth: 400,
@@ -32,21 +32,28 @@ const Settings = () => {
             cameraType: 'front',
         }
 
-        launchImageLibrary(options, r => {
-            setPhoto(r);
-            if (!r?.didCancel) {
-                setWaiter(prev => {
-                    return {
-                        ...prev,
-                        photo: r?.assets.uri
-                    }
-                })
-            }
-        });
+		  const savePhoto = (file) => {
+				setPhoto(file);
+				if (!file?.didCancel) {
+					setMenu(false);
+					setWaiter(prev => {
+						return {
+								...prev,
+								photo: file?.assets[0].uri
+						}
+					})
+				}
+		  }
+		  if (where === 'gallery') {
+			  launchImageLibrary(options, r => savePhoto(r));
+		  } else if (where === 'camera') {
+			  launchCamera(options, r => savePhoto(r))
+		  }
+        
     }
 
     const handleSave = () => {
-        if (name || motto) {
+        if (name || motto) { //Для отправки на бэк возможно придётся разделить
             setWaiter(prev => {
                 return {
                     ...prev,
@@ -67,31 +74,20 @@ const Settings = () => {
 
     return (
         <KeyboardAvoidingView 
-            behavior={Platform.OS === "ios" ? "position" : "height"} 
+            behavior={Platform.OS === "ios" ? "position" : "padding"} 
             keyboardVerticalOffset={0}
             style={styles.container}
             >
+					{console.log('PH', photo)}
+					{console.log('AVA', waiter.photo)}
             <View style={styles.waiter}>
-                <View >
+                <View>
                     <Avatar
                         containerStyle={styles.avatar.container}
                         overlayContainerStyle={styles.avatar.overlay}
-                        renderPlaceholderContent={
-                            <LinearGradient
-                                start={{x: 0, y: 0}} 
-                                end={{x: 0, y: 1}} 
-                                colors={['#78bbe1', '#5c98b9']}
-                                style={styles.avatar.placeholder}>
-                                {waiter.name ? 
-                                <Text style={styles.avatar.initials}>{initials(waiter.name)}</Text> : 
-                                <Icon 
-                                    size={56} 
-                                    color={'#fff'} 
-                                    name='user' 
-                                    type='entypo'/>}
-                            </LinearGradient>
-                        }
-                        source={photo?.didCancel ? null : {uri: photo?.assets[0].uri}}
+								source={waiter.photo ? {uri: waiter.photo} : null}
+                        renderPlaceholderContent={<AvatarPlaceholder name={waiter.name} />}
+                        
                     />
                     <View style={[styles.addphoto, menu ? styles.blackout : null]}>
                         <Icon 
@@ -103,24 +99,24 @@ const Settings = () => {
                             iconStyle={menu ? styles.avatar.cross: styles.avatar.plus} 
                         />
                         {
-                            menu &&
-                            <Icon 
-                            onPress={addPhoto}
-                            name='folder-images' 
-                            type='entypo' 
-                            color='#fff' 
-                            size={30} 
-                            iconStyle={styles.photo} 
-                            />
-                        }{ menu &&
-                            <Icon 
-                            onPress={addPhoto}
-                            name='camera' 
-                            type='entypo' 
-                            color='#fff' 
-                            size={30} 
-                            iconStyle={styles.photo} 
-                            />
+								menu &&
+								<Icon 
+									onPress={() => uploadPhoto('gallery')}
+									name='folder-images' 
+									type='entypo' 
+									color='#fff' 
+									size={28} 
+									iconStyle={styles.photo}
+								/>
+								}{ menu &&
+								<Icon 
+									onPress={() => uploadPhoto('camera')}
+									name='camera' 
+									type='entypo' 
+									color='#fff' 
+									size={28} 
+									iconStyle={styles.photo} 
+								/>
                         }
                     </View>
                 </View>

@@ -21,8 +21,9 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 16,
 		paddingVertical: 32,
 		shadowOffset: {width: 0, height: 0},
-        shadowOpacity: .25,
-        shadowRadius: 16
+      shadowOpacity: .25,
+      shadowRadius: 16,
+		elevation: 6
 	},
 	inputContainer: {
 		marginVertical: 5
@@ -32,11 +33,11 @@ const styles = StyleSheet.create({
 	},
 	button: {
 		borderRadius: 4,
-		backgroundColor: '#AA9B71',
-		opacity: .8
+		backgroundColor: '#F5F2ED',
 	},
 	buttonText: {
-		fontWeight: '700'
+		color: '#192021',
+		fontWeight: '500'
 	}
 });
 
