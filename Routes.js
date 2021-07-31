@@ -1,8 +1,9 @@
-import React, {useEffect} from 'react';
-import { NativeRouter, Route } from "react-router-native";
+import React from 'react';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 import { useAuth } from './src/context/AuthCtx';
 import ThemeProvider from './src/context/ThemeCtx';
-import MainLayout from './src/layouts/MainLayout';
 import Account from './src/pages/Account';
 import Payback from './src/pages/Payback';
 import RegForm from './src/pages/RegForm';
@@ -14,19 +15,23 @@ export default function Routes() {
 
     const {isAuth} = useAuth();
 
-  return (
+	 const Stack = createStackNavigator();
+	 return (
       <ThemeProvider>
-        <NativeRouter>
-          <MainLayout>
-            {isAuth && 
-            <Route exact path='/' component={Account}/> || 
-            <Route exact path='/' component={SignIn}/> }
-            {isAuth && <Route path='/tables' component={Tables}/>}
-            {isAuth && <Route path='/settings' component={Settings}/>}
-            {isAuth && <Route path='/payback' component={Payback}/>}
-            {isAuth && <Route path='/RegForm' component={RegForm}/>}
-          </MainLayout>
-        </NativeRouter>
+        	<NavigationContainer>
+			  	<Stack.Navigator headerMode='none' screenOptions={
+					  {cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS}
+				  }>
+					{!isAuth && <Stack.Screen name='Home' component={SignIn} /> ||
+					<Stack.Screen name='Account' component={Account} />}
+					{isAuth && <>
+					<Stack.Screen name='Tables' component={Tables} />
+					<Stack.Screen name='Settings' component={Settings} />
+					<Stack.Screen name='Payback' component={Payback} />
+					<Stack.Screen name='RegForm' component={RegForm} />
+					</>}
+			 	</Stack.Navigator>
+        	</NavigationContainer>
       </ThemeProvider>
   );
 }
