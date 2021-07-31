@@ -3,7 +3,6 @@ import { StyleSheet, View } from 'react-native';
 import { Button, Input, Icon } from 'react-native-elements';
 import { useAuth } from '../context/AuthCtx';
 import { useTheme } from '../context/ThemeCtx';
-import MainLayout from '../layouts/MainLayout';
 import { getDataByPost } from '../lib/fetch';
 
 const styles = StyleSheet.create({
@@ -14,6 +13,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'flex-start',
 		paddingVertical: 32,
+		paddingHorizontal: 16
 	},
 	signin: {
 		width: '100%',
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
 	}
 });
 
-const SignIn = () => {
+const Home = () => {
 	const { logIn, setSession } = useAuth();
 	const { switchTheme } = useTheme();
 	const [login, setLogin] = useState('');
@@ -74,43 +74,41 @@ const SignIn = () => {
 	}
 
 	return (
-		<MainLayout>
-			<View style={styles.container}>
-				<View style={styles.signin}>
-					<Input
-						inputContainerStyle={styles.inputContainer}
-						rightIconContainerStyle={styles.rightIconContainer}
-						value={login}
-						onChangeText={setLogin}
-						label='Логин'
-						rightIcon={{ type: 'entypo', name: 'user' }}
-						errorMessage={errorLogin}
-					/>
-					<Input
-						inputContainerStyle={styles.inputContainer}
-						rightIconContainerStyle={styles.rightIconContainer}
-						value={pass}
-						onChangeText={setPass}
-						label='Пароль'
-						secureTextEntry={visible}
-						keyboardType='numeric'
-						rightIcon={<Icon
-							onPress={() => setVisible(p => !p)}
-							name={visible ? 'eye' : 'eye-with-line'}
-							type='entypo'
-						/>}
-						errorMessage={errorPass}
-					/>
-					<Button
-						title='Войти'
-						buttonStyle={styles.button}
-						titleStyle={styles.buttonText}
-						onPress={e => handleLog(e)}
-					/>
-				</View>
+		<View style={styles.container}>
+			<View style={styles.signin}>
+				<Input
+					inputContainerStyle={styles.inputContainer}
+					rightIconContainerStyle={styles.rightIconContainer}
+					value={login}
+					onChangeText={setLogin}
+					label='Логин'
+					rightIcon={{ type: 'entypo', name: 'user' }}
+					errorMessage={errorLogin}
+				/>
+				<Input
+					inputContainerStyle={styles.inputContainer}
+					rightIconContainerStyle={styles.rightIconContainer}
+					value={pass}
+					onChangeText={setPass}
+					label='Пароль'
+					secureTextEntry={visible}
+					keyboardType='numeric'
+					rightIcon={<Icon
+						onPress={() => setVisible(p => !p)}
+						name={visible ? 'eye' : 'eye-with-line'}
+						type='entypo'
+					/>}
+					errorMessage={errorPass}
+				/>
+				<Button
+					title='Войти'
+					buttonStyle={styles.button}
+					titleStyle={styles.buttonText}
+					onPress={e => handleLog(e)}
+				/>
 			</View>
-		</MainLayout>
+		</View>
 	);
 };
 
-export default SignIn;
+export default Home;

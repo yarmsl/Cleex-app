@@ -5,10 +5,13 @@ import { Icon } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from '@react-navigation/native';
 
-const SuperHeader = ({title}) => {
+const SuperHeader = () => {
 	const nav = useNavigation();
 	const route = useRoute();
+	console.log(nav);
+	console.log(route);
 	const { theme } = useTheme();
+
 	const styles = StyleSheet.create({
 		header: {
 			width: '100%',
@@ -24,18 +27,22 @@ const SuperHeader = ({title}) => {
 		}
 	});
 
+	const title = 'Topka Reborn'
+
 	return (
 		<View style={styles.header}>
 			<View style={styles.sideblock}>
-				{ (route.name !== 'Home' && route.name !== 'Account') && <Icon
+			{(route.name !== 'Home' && route.name !== 'Account') &&
+				<Icon
 					onPress={() => nav.goBack()}
 					iconStyle={{ width: '100%' }}
 					name='left'
 					type='antdesign'
 					color={theme.textColor}
-				/>}
+				/>
+				}
 			</View>
-			{theme.headerLogo || <Text style={{ color: '#fff', fontSize: 20 }}>{title}</Text>} 
+			{theme.headerLogo || <Text style={{ color: '#fff', fontSize: 20 }}>{title}</Text>}
 			<View style={styles.sideblock}></View>
 		</View>
 	)

@@ -6,6 +6,7 @@ export const styles = {
 		alignItems: 'center',
 		justifyContent: 'flex-start',
 		paddingVertical: 32,
+		paddingHorizontal: 16
 	},
 	waiter: {
 		minWidth: '100%',

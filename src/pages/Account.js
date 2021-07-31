@@ -1,7 +1,6 @@
 import React from 'react';
 import { Image, View, StyleSheet } from "react-native";
 import { Button } from 'react-native-elements/dist/buttons/Button';
-import MainLayout from '../layouts/MainLayout';
 import { useAuth } from '../context/AuthCtx';
 import { useTheme } from '../context/ThemeCtx';
 import { vertical } from '../UI/topka/gradients';
@@ -40,47 +39,45 @@ const Account = ({ navigation }) => {
 	});
 
 	return (
-		<MainLayout title={'Topka Reborn'}>
-			<View style={styles.container}>
-				<View style={styles.top}>
-					<Image style={styles.img} resizeMode='contain' source={theme.logo} />
-				</View>
-				<View style={styles.bottom}>
-					<Button
-						buttonStyle={theme.button.light}
-						titleStyle={theme.button.lightTitle}
-						title='Выбрать столик на сегодня'
-						onPress={() => navigation.navigate('Tables')}
-						ViewComponent={LinearGradient}
-						linearGradientProps={vertical.grey}
-					/>
-					<Button
-						buttonStyle={theme.button.light}
-						titleStyle={theme.button.lightTitle}
-						title='Настройка профиля'
-						onPress={() => navigation.navigate('Settings')}
-						ViewComponent={LinearGradient}
-						linearGradientProps={vertical.grey}
-					/>
-					<Button
-						buttonStyle={theme.button.light}
-						titleStyle={theme.button.lightTitle}
-						title='Вывод средств'
-						onPress={() => navigation.navigate('Payback')}
-						ViewComponent={LinearGradient}
-						linearGradientProps={vertical.grey}
-					/>
-					<Button
-						buttonStyle={theme.button.light}
-						titleStyle={theme.button.lightTitle}
-						title='Выйти'
-						onPress={() => { destroySession().then(() => logOut()) }}
-						ViewComponent={LinearGradient}
-						linearGradientProps={vertical.grey}
-					/>
-				</View>
+		<View style={styles.container}>
+			<View style={styles.top}>
+				<Image style={styles.img} resizeMode='contain' source={theme.logo} />
 			</View>
-		</MainLayout>
+			<View style={styles.bottom}>
+				<Button
+					buttonStyle={theme.button.light}
+					titleStyle={theme.button.lightTitle}
+					title='Выбрать столик на сегодня'
+					onPress={() => navigation.navigate('Tables')}
+					ViewComponent={LinearGradient}
+					linearGradientProps={vertical.grey}
+				/>
+				<Button
+					buttonStyle={theme.button.light}
+					titleStyle={theme.button.lightTitle}
+					title='Настройка профиля'
+					onPress={() => navigation.navigate('Settings')}
+					ViewComponent={LinearGradient}
+					linearGradientProps={vertical.grey}
+				/>
+				<Button
+					buttonStyle={theme.button.light}
+					titleStyle={theme.button.lightTitle}
+					title='Вывод средств'
+					onPress={() => navigation.navigate('Payback')}
+					ViewComponent={LinearGradient}
+					linearGradientProps={vertical.grey}
+				/>
+				<Button
+					buttonStyle={theme.button.light}
+					titleStyle={theme.button.lightTitle}
+					title='Выйти'
+					onPress={() => { destroySession().then(() => logOut()) }}
+					ViewComponent={LinearGradient}
+					linearGradientProps={vertical.grey}
+				/>
+			</View>
+		</View>
 	)
 }
 

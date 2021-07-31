@@ -2,14 +2,10 @@ import React from 'react';
 import { ImageBackground, StyleSheet, StatusBar, ScrollView } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import SafeAreaView from 'react-native-safe-area-view';
-import SuperHeader from '../components/SuperHeader';
 import { useTheme } from '../context/ThemeCtx';
-import { useAuth } from '../context/AuthCtx';
 
-const MainLayout = ({ children, title }) => {
-	const {isAuth} = useAuth();
+const MainLayout = ({ children }) => {
 	const { theme } = useTheme();
-
 
 	const styles = StyleSheet.create({
 		container: {
@@ -27,8 +23,6 @@ const MainLayout = ({ children, title }) => {
 			width: '100%',
 			minHeight: '90%',
 			height: 'auto',
-			paddingHorizontal: 16,
-
 		}
 	});
 
@@ -40,7 +34,6 @@ const MainLayout = ({ children, title }) => {
 					backgroundColor={theme.headerColor}
 				/>
 				<ImageBackground style={styles.bg} source={theme.backgroundImage} resizeMode='cover'>
-					<SuperHeader title={title}/>
 					<ScrollView contentContainerStyle={styles.wrapper}>
 						{children}
 					</ScrollView>
