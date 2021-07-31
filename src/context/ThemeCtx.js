@@ -21,18 +21,10 @@ const reducer = (theme, action) => {
 };
 
 const ThemeProvider = ({children}) => {
-    const {isAuth} = useAuth();
+	
     const [theme, dispatch] = useReducer(reducer, design.cleex)
     const switchTheme = (company) => dispatch({type: company});
     
-    useEffect(() => {
-        if (isAuth == false) {
-            switchTheme(CLEEX);
-        } else {
-            switchTheme(TOPKA) // need to switch themes by database signal
-        }
-    }, [isAuth])
-
     return (
         <ThemeCtx.Provider value={{theme, switchTheme}}>
             {children}

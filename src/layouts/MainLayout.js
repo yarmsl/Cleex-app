@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, StatusBar, ScrollView } from 'react-native';
+import { ImageBackground, StyleSheet, StatusBar, ScrollView, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import SafeAreaView from 'react-native-safe-area-view';
 import { useTheme } from '../context/ThemeCtx';
@@ -21,8 +21,8 @@ const MainLayout = ({ children }) => {
 		},
 		wrapper: {
 			width: '100%',
-			minHeight: '90%',
-			height: 'auto',
+			minHeight: '100%',
+			
 		}
 	});
 
@@ -34,9 +34,9 @@ const MainLayout = ({ children }) => {
 					backgroundColor={theme.headerColor}
 				/>
 				<ImageBackground style={styles.bg} source={theme.backgroundImage} resizeMode='cover'>
-					<ScrollView contentContainerStyle={styles.wrapper}>
+					<View style={styles.wrapper}>
 						{children}
-					</ScrollView>
+					</View>
 				</ImageBackground>
 			</SafeAreaView>
 		</SafeAreaProvider>

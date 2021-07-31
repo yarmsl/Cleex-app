@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Image, View, StyleSheet } from "react-native";
 import { Button } from 'react-native-elements/dist/buttons/Button';
 import { useAuth } from '../context/AuthCtx';
@@ -8,7 +8,11 @@ import LinearGradient from 'react-native-linear-gradient';
 
 const Account = ({ navigation }) => {
 	const { logOut, destroySession } = useAuth();
-	const { theme } = useTheme();
+	const { theme, switchTheme } = useTheme();
+
+	useEffect(() => {
+		navigation.addListener('beforeRemove', () => switchTheme('cleex'))
+	}, [navigation])
 
 	const styles = StyleSheet.create({
 		container: {
@@ -72,7 +76,7 @@ const Account = ({ navigation }) => {
 					buttonStyle={theme.button.light}
 					titleStyle={theme.button.lightTitle}
 					title='Выйти'
-					onPress={() => { destroySession().then(() => logOut()) }}
+					onPress={() => { destroySession().then(() => {logOut(), switchTheme('cleex')}) }}
 					ViewComponent={LinearGradient}
 					linearGradientProps={vertical.grey}
 				/>

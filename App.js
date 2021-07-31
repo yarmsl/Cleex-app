@@ -1,8 +1,9 @@
 import React from 'react';
-import Routes from './Routes';
+import Screens from './Screens';
 import AuthProvider from './src/context/AuthCtx';
 import PushNotificationIOS from "@react-native-community/push-notification-ios";
 import PushNotification from "react-native-push-notification";
+
 
 // Must be outside of any component LifeCycle (such as `componentDidMount`).
 PushNotification.configure({
@@ -60,7 +61,7 @@ export default function App() {
 
   return (
     <AuthProvider>
-        <Routes/>
+		 <Screens/>
     </AuthProvider>
   );
 }

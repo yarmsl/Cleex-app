@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
-import { View, KeyboardAvoidingView, Text } from "react-native";
+import { View, KeyboardAvoidingView, Text, ScrollView } from "react-native";
 import { Avatar, Input, Icon, Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import { vertical } from '../UI/topka/gradients';
@@ -42,6 +42,8 @@ const Settings = ({ navigation }) => {
 						photo: file?.assets[0].uri
 					}
 				})
+			} else {
+				setMenu(false)
 			}
 		}
 		if (where === 'gallery') {
@@ -76,79 +78,80 @@ const Settings = ({ navigation }) => {
 		<KeyboardAvoidingView
 			behavior={Platform.OS === "ios" ? "position" : "padding"}
 			keyboardVerticalOffset={0}
-			style={styles.container}
+			style={styles.root}
 		>
-			<View style={styles.waiter}>
-				<View>
-					<Avatar
-						containerStyle={styles.avatar.container}
-						overlayContainerStyle={styles.avatar.overlay}
-						source={waiter.photo ? { uri: waiter.photo } : null}
-						renderPlaceholderContent={<AvatarPlaceholder name={waiter.name} />}
-
-					/>
-					<View style={[styles.addphoto, menu ? styles.blackout : null]}>
-						<Icon
-							onPress={addPhoto}
-							name='plus'
-							type='entypo'
-							color='#fff'
-							size={40}
-							iconStyle={menu ? styles.avatar.cross : styles.avatar.plus}
+			<ScrollView  contentContainerStyle={styles.container}>
+				<View style={styles.waiter}>
+					<View>
+						<Avatar
+							containerStyle={styles.avatar.container}
+							overlayContainerStyle={styles.avatar.overlay}
+							source={waiter.photo ? { uri: waiter.photo } : null}
+							renderPlaceholderContent={<AvatarPlaceholder name={waiter.name} size={'large'} />}
 						/>
-						{
-							menu &&
+						<View style={[styles.addphoto, menu ? styles.blackout : null]}>
 							<Icon
-								onPress={() => uploadPhoto('gallery')}
-								name='folder-images'
+								onPress={addPhoto}
+								name='plus'
 								type='entypo'
 								color='#fff'
-								size={28}
-								iconStyle={styles.photo}
+								size={40}
+								iconStyle={menu ? styles.avatar.cross : styles.avatar.plus}
 							/>
-						}{menu &&
-							<Icon
-								onPress={() => uploadPhoto('camera')}
-								name='camera'
-								type='entypo'
-								color='#fff'
-								size={28}
-								iconStyle={styles.photo}
-							/>
-						}
+							{
+								menu &&
+								<Icon
+									onPress={() => uploadPhoto('gallery')}
+									name='folder-images'
+									type='entypo'
+									color='#fff'
+									size={28}
+									iconStyle={styles.photo}
+								/>
+							}{menu &&
+								<Icon
+									onPress={() => uploadPhoto('camera')}
+									name='camera'
+									type='entypo'
+									color='#fff'
+									size={28}
+									iconStyle={styles.photo}
+								/>
+							}
+						</View>
 					</View>
+					<Text style={styles.name}>{waiter.name}</Text>
+					<Text style={styles.motto}>{waiter.motto}</Text>
 				</View>
-				<Text style={styles.name}>{waiter.name}</Text>
-				<Text style={styles.motto}>{waiter.motto}</Text>
-			</View>
-			<View style={styles.form}>
-				<Input
-					label='Имя'
-					placeholder='Введите имя'
-					inputContainerStyle={styles.input.inputContainer}
-					inputStyle={styles.input.input}
-					labelStyle={styles.input.label}
-					value={name}
-					onChangeText={setName}
-				/>
-				<Input
-					label='Девиз'
-					placeholder='Введите девиз'
-					inputContainerStyle={styles.input.inputContainer}
-					inputStyle={styles.input.input}
-					labelStyle={styles.input.label}
-					value={motto}
-					onChangeText={setMotto}
-				/>
-				{saveBtn && <Button
-					onPress={() => handleSave()}
-					title='Сохранить'
-					buttonStyle={styles.button.button}
-					titleStyle={styles.button.title}
-					ViewComponent={LinearGradient}
-					linearGradientProps={vertical.blue}
-				/>}
-			</View>
+				<View style={styles.form}>
+					<Input
+						label='Имя'
+						placeholder='Введите имя'
+						inputContainerStyle={styles.input.inputContainer}
+						inputStyle={styles.input.input}
+						labelStyle={styles.input.label}
+						value={name}
+						onChangeText={setName}
+					/>
+					<Input
+						label='Девиз'
+						placeholder='Введите девиз'
+						inputContainerStyle={styles.input.inputContainer}
+						inputStyle={styles.input.input}
+						labelStyle={styles.input.label}
+						value={motto}
+						onChangeText={setMotto}
+					/>
+					{saveBtn && <Button
+						onPress={() => handleSave()}
+						title='Сохранить'
+						buttonStyle={styles.button.button}
+						titleStyle={styles.button.title}
+						ViewComponent={LinearGradient}
+						linearGradientProps={vertical.blue}
+					/>}
+				</View>
+			</ScrollView>
 		</KeyboardAvoidingView>
 	)
 }

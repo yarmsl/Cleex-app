@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "../components/Logo";
-import { Text } from "react-native";
+
 
 export const design = {
 	cleex: {
@@ -11,6 +11,7 @@ export const design = {
 		backgroundImage: require('../images/bgw.png'),
 		textColor: '#192921',
 		primeColor: '#AA9B71',
+		primeDarkColor: '#c8bc9a',
 		button: {
 			light: {
 				backgroundColor: '#EDF1F5',
@@ -53,6 +54,7 @@ export const design = {
 		backgroundImage: require('../images/topka_bg.jpg'),
 		textColor: '#FFFFFF',
 		primeColor: '#78BBE1',
+		primeDarkColor: '#5c98b9',
 		button: {
 			light: {
 				backgroundColor: '#EDF1F5',

@@ -1,12 +1,15 @@
 export const styles = {
+	root: {
+		paddingBottom: 32,
+	},
 	container: {
 		width: '100%',
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
 		justifyContent: 'flex-start',
-		paddingVertical: 32,
-		paddingHorizontal: 16
+		paddingHorizontal: 16,
+		paddingTop: 32
 	},
 	waiter: {
 		minWidth: '100%',

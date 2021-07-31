@@ -6,15 +6,6 @@ import { useTheme } from '../context/ThemeCtx';
 import { getDataByPost } from '../lib/fetch';
 
 const styles = StyleSheet.create({
-	container: {
-		width: '100%',
-		height: '100%',
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'flex-start',
-		paddingVertical: 32,
-		paddingHorizontal: 16
-	},
 	signin: {
 		width: '100%',
 		backgroundColor: '#fff',
@@ -39,10 +30,10 @@ const styles = StyleSheet.create({
 	buttonText: {
 		color: '#192021',
 		fontWeight: '500'
-	}
+	},
 });
 
-const Home = () => {
+const SignIn = () => {
 	const { logIn, setSession } = useAuth();
 	const { switchTheme } = useTheme();
 	const [login, setLogin] = useState('');
@@ -50,6 +41,7 @@ const Home = () => {
 	const [visible, setVisible] = useState(true);
 	const [errorLogin, setErrorLogin] = useState('');
 	const [errorPass, setErrorPass] = useState('');
+
 	const handleLog = async (e) => {
 		e.preventDefault();
 		setErrorLogin('');
@@ -60,7 +52,7 @@ const Home = () => {
 				if (data !== undefined) {
 					if (data.idUsers) {
 						setSession(data.idUsers);
-						switchTheme('topka');
+						
 						logIn();
 					} else if (data.Message === 'No isset login.') {
 						setErrorLogin('Неверный логин');
@@ -74,7 +66,6 @@ const Home = () => {
 	}
 
 	return (
-		<View style={styles.container}>
 			<View style={styles.signin}>
 				<Input
 					inputContainerStyle={styles.inputContainer}
@@ -102,13 +93,13 @@ const Home = () => {
 				/>
 				<Button
 					title='Войти'
+					containerStyle={styles.buttonContainer}
 					buttonStyle={styles.button}
 					titleStyle={styles.buttonText}
 					onPress={e => handleLog(e)}
 				/>
 			</View>
-		</View>
 	);
 };
 
-export default Home;
+export default SignIn;

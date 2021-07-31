@@ -6,6 +6,8 @@ export const topkaTables = StyleSheet.create({
         width: '100%',
         height: 'auto',
         display: 'flex',
+		  flex: 1,
+		  paddingHorizontal: 16,
         },
     tableBox: {
         width: '100%',

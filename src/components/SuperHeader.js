@@ -4,13 +4,15 @@ import { StyleSheet, View, Text } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from '@react-navigation/native';
+import { useAuth } from '../context/AuthCtx';
+import { Avatar } from 'react-native-elements';
+import AvatarPlaceholder from './AvatarPlaceholder';
 
 const SuperHeader = () => {
 	const nav = useNavigation();
 	const route = useRoute();
-	console.log(nav);
-	console.log(route);
-	const { theme } = useTheme();
+	const { theme, switchTheme } = useTheme();
+	const { isAuth } = useAuth();
 
 	const styles = StyleSheet.create({
 		header: {
@@ -21,29 +23,66 @@ const SuperHeader = () => {
 			justifyContent: 'space-between',
 			paddingHorizontal: 15,
 			backgroundColor: theme.headerColor,
+			shadowOffset: { width: 0, height: 4 },
+			shadowOpacity: 0.5,
+			shadowRadius: 10,
+			elevation: 6
 		},
 		sideblock: {
-			width: 25,
+			width: 35,
+		},
+		avatarContainer: {
+			width: 34,
+			height: 34,
+			shadowOffset: { width: 0, height: 4 },
+			shadowOpacity: 0.5,
+			shadowRadius: 10,
+		},
+		avatarOverlay: {
+			borderRadius: 40,
+			backgroundColor: '#78bbe1',
+			elevation: 3
 		}
 	});
 
-	const title = 'Topka Reborn'
+	const title = () => {
+		switch (route.name) {
+			case 'Account':
+				return 'Topka Reborn';
+			case 'Tables':
+				return 'Выбрать столик';
+			case 'Settings':
+				return 'Настройка профиля';
+			case 'Payback':
+				return 'Вывод средств';
+			default:
+				return 'Topka Reborn'
+		}
+	}
 
 	return (
 		<View style={styles.header}>
 			<View style={styles.sideblock}>
-			{(route.name !== 'Home' && route.name !== 'Account') &&
-				<Icon
-					onPress={() => nav.goBack()}
-					iconStyle={{ width: '100%' }}
-					name='left'
-					type='antdesign'
-					color={theme.textColor}
-				/>
+				{(route.name !== 'Home' && route.name !== 'Account') &&
+					<Icon
+						onPress={() => nav.goBack()}
+						iconStyle={{ width: '100%', paddingLeft: 4 }}
+						name='left'
+						type='antdesign'
+						color={theme.textColor}
+					/>
 				}
 			</View>
-			{theme.headerLogo || <Text style={{ color: '#fff', fontSize: 20 }}>{title}</Text>}
-			<View style={styles.sideblock}></View>
+			{theme.headerLogo || <Text style={{ color: '#fff', fontSize: 20 }}>{title()}</Text>}
+			<View style={styles.sideblock}>
+				{isAuth && <Avatar
+					containerStyle={styles.avatarContainer}
+					overlayContainerStyle={styles.avatarOverlay}
+					// source={}
+					renderPlaceholderContent={<AvatarPlaceholder name={''} size={'small'} />}
+					onPress={() => route.name === 'Home' ? (nav.navigate('Account'), switchTheme('topka')) : nav.navigate('Settings') }
+				/>}
+			</View>
 		</View>
 	)
 }

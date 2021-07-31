@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View } from "react-native";
+import { Text, View, ScrollView } from "react-native";
 import { useTheme } from '../context/ThemeCtx';
 import { topkaTables as styles } from '../UI/topka/Tables_StyleSheet';
 import { vertical as gradients } from '../UI/topka/gradients';
@@ -106,7 +106,7 @@ const Tables = () => {
 	}
 
 	return (
-		<View style={styles.container}>
+		<ScrollView style={styles.container}>
 			{console.log(selectedTables)}
 			<View style={styles.tableBox}>
 				<View style={styles.tableLeft}>
@@ -172,7 +172,7 @@ const Tables = () => {
 					onPress={() => localNotif()}
 				/>
 			</View>
-		</View>
+		</ScrollView>
 	)
 }
 
