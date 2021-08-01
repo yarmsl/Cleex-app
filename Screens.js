@@ -1,6 +1,7 @@
 import React from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
+import { enableScreens } from 'react-native-screens';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 import { useAuth } from './src/context/AuthCtx';
 import ThemeProvider from './src/context/ThemeCtx';
@@ -16,9 +17,9 @@ import SuperHeader from './src/components/SuperHeader';
 export default function Screens() {
 
 	const { isAuth } = useAuth();
-
+	enableScreens();
 	const Stack = createStackNavigator();
-	console.log(Stack)
+	
 	return (
 		<ThemeProvider>
 			<NavigationContainer>

@@ -8,8 +8,6 @@ import { useAuth } from '../context/AuthCtx';
 import LinearGradient from 'react-native-linear-gradient';
 import PushNotification, { Importance } from 'react-native-push-notification';
 
-console.log('render Tables');
-
 const Tables = () => {
 
 	const tableCount = 7;

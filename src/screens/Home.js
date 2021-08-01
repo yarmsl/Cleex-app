@@ -5,8 +5,6 @@ import SignIn from '../components/SignIn';
 import { useAuth } from '../context/AuthCtx';
 import { useTheme } from '../context/ThemeCtx';
 
-console.log('render Home');
-
 const styles = StyleSheet.create({
 	container: {
 		width: '100%',

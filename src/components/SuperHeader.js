@@ -14,8 +14,6 @@ const SuperHeader = () => {
 	const { theme, switchTheme } = useTheme();
 	const { isAuth } = useAuth();
 
-	console.log('hook: ',route.name)
-
 	const styles = StyleSheet.create({
 		header: {
 			width: '100%',

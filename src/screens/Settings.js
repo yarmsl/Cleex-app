@@ -7,8 +7,6 @@ import { vertical } from '../UI/topka/gradients';
 import { styles } from '../UI/topka/Settings_StyleSheet';
 import AvatarPlaceholder from '../components/AvatarPlaceholder';
 
-console.log('render Settings');
-
 const Settings = () => {
 	const [photo, setPhoto] = useState();
 	const [name, setName] = useState('')
