@@ -6,6 +6,8 @@ import { useTheme } from '../context/ThemeCtx';
 import { vertical } from '../UI/topka/gradients';
 import LinearGradient from 'react-native-linear-gradient';
 
+console.log('render Account');
+
 const Account = ({ navigation }) => {
 	const { logOut, destroySession } = useAuth();
 	const { theme, switchTheme } = useTheme();

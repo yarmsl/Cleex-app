@@ -18,11 +18,12 @@ export default function Screens() {
 	const { isAuth } = useAuth();
 
 	const Stack = createStackNavigator();
+	console.log(Stack)
 	return (
 		<ThemeProvider>
 			<NavigationContainer>
 				<MainLayout>
-					<Stack.Navigator initialRouteName={'Home'} headerMode='float' screenOptions={{
+					<Stack.Navigator headerMode='float' screenOptions={{
 						cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid, //Сделать, в зависимости от системы, попробовать задать inset здесь
 						cardStyle: { backgroundColor: 'transparent'},
 						header: () => <SuperHeader />

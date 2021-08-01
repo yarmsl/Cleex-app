@@ -7,30 +7,17 @@ import { useTheme } from '../context/ThemeCtx';
 
 const AvatarPlaceholder = ({name, size}) => {
 
-	const { theme } = useTheme()
-	const fontSize = () => {
+	const { theme } = useTheme();
+	const scale = () => {
 		switch (size) {
 			case 'small':
-				return 15;
+				return {fontSize: 15, iconSize: 18};
 			case 'medium':
-				return 24;
+				return {fontSize: 24, iconSize: 24};
 			case 'large':
-				return 40;
+				return {fontSize: 40, iconSize: 56};
 			default: 
-				return 24;
-		}
-	};
-
-	const iconSize = () => {
-		switch (size) {
-			case 'small':
-				return 18;
-			case 'medium':
-				return 24;
-			case 'large':
-				return 56;
-			default: 
-				return 24;
+				return {fontSize: 24, iconSize: 24};
 		}
 	};
 
@@ -44,7 +31,7 @@ const AvatarPlaceholder = ({name, size}) => {
 		 },
 		 initials: {
 			color: '#fff',
-			fontSize: fontSize()
+			fontSize: scale().fontSize
 		 }
 	}) 
 
@@ -57,7 +44,7 @@ const AvatarPlaceholder = ({name, size}) => {
 			{name ? 
 			<Text style={styles.initials}>{initials(name)}</Text> : 
 			<Icon 
-				size={iconSize()} 
+				size={scale().iconSize} 
 				color={'#fff'} 
 				name='user' 
 				type='entypo'/>}

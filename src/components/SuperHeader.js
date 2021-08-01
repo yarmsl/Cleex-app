@@ -14,6 +14,8 @@ const SuperHeader = () => {
 	const { theme, switchTheme } = useTheme();
 	const { isAuth } = useAuth();
 
+	console.log('hook: ',route.name)
+
 	const styles = StyleSheet.create({
 		header: {
 			width: '100%',
@@ -63,7 +65,7 @@ const SuperHeader = () => {
 	return (
 		<View style={styles.header}>
 			<View style={styles.sideblock}>
-				{(route.name !== 'Home' && route.name !== 'Account') &&
+				{route.name !== 'Home' &&
 					<Icon
 						onPress={() => nav.goBack()}
 						iconStyle={{ width: '100%', paddingLeft: 4 }}
