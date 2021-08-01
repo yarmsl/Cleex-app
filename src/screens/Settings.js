@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
-import { View, KeyboardAvoidingView, Text, ScrollView } from "react-native";
+import { View, KeyboardAvoidingView, Text, ScrollView, Platform } from "react-native";
 import { Avatar, Input, Icon, Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import { vertical } from '../UI/topka/gradients';
@@ -73,10 +73,9 @@ const Settings = () => {
 			setSave(false)
 		}
 	}, [name, motto])
-
 	return (
 		<KeyboardAvoidingView
-			behavior={Platform.OS === "ios" ? "position" : "padding"}
+			behavior={Platform.OS === "ios" ? "position" : "height"}
 			keyboardVerticalOffset={0}
 			style={styles.root}
 		>
