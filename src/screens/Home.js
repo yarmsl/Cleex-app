@@ -16,13 +16,14 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 16
 	},
 	buttonContainer: {
-		shadowOffset: { width: 0, height: 4 },
+		shadowOffset: { width: 0, height: 0 },
 		shadowOpacity: 0.5,
-		shadowRadius: 10,
+		shadowRadius: 4,
 		elevation: 3
 	},
 	button: {
 		backgroundColor: '#fff',
+
 	},
 	buttonText: {
 		color: '#192921'

@@ -23,9 +23,9 @@ const SuperHeader = () => {
 			justifyContent: 'space-between',
 			paddingHorizontal: 15,
 			backgroundColor: theme.headerColor,
-			shadowOffset: { width: 0, height: 4 },
-			shadowOpacity: 0.5,
-			shadowRadius: 10,
+			// shadowOffset: { width: 0, height: 10 },
+			// shadowOpacity: 0.5,
+			// shadowRadius: 5,
 			elevation: 6
 		},
 		sideblock: {
@@ -34,9 +34,9 @@ const SuperHeader = () => {
 		avatarContainer: {
 			width: 34,
 			height: 34,
-			shadowOffset: { width: 0, height: 4 },
+			shadowOffset: { width: 0, height: 0 },
 			shadowOpacity: 0.5,
-			shadowRadius: 10,
+			shadowRadius: 2,
 		},
 		avatarOverlay: {
 			borderRadius: 40,

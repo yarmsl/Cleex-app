@@ -76,7 +76,7 @@ const Settings = () => {
 	return (
 		<KeyboardAvoidingView
 			behavior={Platform.OS === "ios" ? "position" : "height"}
-			keyboardVerticalOffset={0}
+			keyboardVerticalOffset={Platform.OS === "ios" ? 40 : 0}
 			style={styles.root}
 		>
 			<ScrollView  contentContainerStyle={styles.container}>

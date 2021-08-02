@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 		paddingVertical: 32,
 		shadowOffset: { width: 0, height: 0 },
 		shadowOpacity: .25,
-		shadowRadius: 16,
+		shadowRadius: 8,
 		elevation: 6
 	},
 	inputContainer: {

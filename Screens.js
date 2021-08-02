@@ -13,6 +13,7 @@ import Home from './src/screens/Home';
 import Tables from './src/screens/Tables';
 import MainLayout from './src/layouts/MainLayout';
 import SuperHeader from './src/components/SuperHeader';
+import { Platform } from 'react-native';
 
 export default function Screens() {
 
@@ -25,7 +26,7 @@ export default function Screens() {
 			<NavigationContainer>
 				<MainLayout>
 					<Stack.Navigator headerMode='float' screenOptions={{
-						cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid, //Сделать, в зависимости от системы, попробовать задать inset здесь
+						cardStyleInterpolator: Platform.OS === 'ios' ? CardStyleInterpolators.forScaleFromCenterAndroid : CardStyleInterpolators.forScaleFromCenterAndroid,
 						cardStyle: { backgroundColor: 'transparent'},
 						header: () => <SuperHeader />
 					}}>
@@ -34,7 +35,7 @@ export default function Screens() {
 							<Stack.Screen name='Account' component={Account} />
 							<Stack.Screen name='Tables' component={Tables} />
 							<Stack.Screen name='Settings' component={Settings} />
-							<Stack.Screen name='Payback' component={Payback} />
+							<Stack.Screen name='Payback' component={Payback} options={{cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS}}/>
 							<Stack.Screen name='RegForm' component={RegForm} />
 						</>}
 					</Stack.Navigator>
