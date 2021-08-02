@@ -6,23 +6,16 @@ import { useTheme } from '../context/ThemeCtx';
 import { getDataByPost } from '../lib/fetch';
 
 const styles = StyleSheet.create({
-	container: {
-		width: '100%',
-		height: '100%',
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'flex-start',
-		paddingVertical: 32,
-	},
 	signin: {
 		width: '100%',
 		backgroundColor: '#fff',
 		borderRadius: 8,
 		paddingHorizontal: 16,
 		paddingVertical: 32,
-		shadowOffset: {width: 0, height: 0},
-        shadowOpacity: .25,
-        shadowRadius: 16
+		shadowOffset: { width: 0, height: 0 },
+		shadowOpacity: .25,
+		shadowRadius: 8,
+		elevation: 6
 	},
 	inputContainer: {
 		marginVertical: 5
@@ -32,12 +25,12 @@ const styles = StyleSheet.create({
 	},
 	button: {
 		borderRadius: 4,
-		backgroundColor: '#AA9B71',
-		opacity: .8
+		backgroundColor: '#F5F2ED',
 	},
 	buttonText: {
-		fontWeight: '700'
-	}
+		color: '#192021',
+		fontWeight: '500'
+	},
 });
 
 const SignIn = () => {
@@ -48,6 +41,7 @@ const SignIn = () => {
 	const [visible, setVisible] = useState(true);
 	const [errorLogin, setErrorLogin] = useState('');
 	const [errorPass, setErrorPass] = useState('');
+
 	const handleLog = async (e) => {
 		e.preventDefault();
 		setErrorLogin('');
@@ -58,7 +52,7 @@ const SignIn = () => {
 				if (data !== undefined) {
 					if (data.idUsers) {
 						setSession(data.idUsers);
-						switchTheme('topka');
+						
 						logIn();
 					} else if (data.Message === 'No isset login.') {
 						setErrorLogin('Неверный логин');
@@ -72,7 +66,6 @@ const SignIn = () => {
 	}
 
 	return (
-		<View style={styles.container}>
 			<View style={styles.signin}>
 				<Input
 					inputContainerStyle={styles.inputContainer}
@@ -100,12 +93,12 @@ const SignIn = () => {
 				/>
 				<Button
 					title='Войти'
+					containerStyle={styles.buttonContainer}
 					buttonStyle={styles.button}
 					titleStyle={styles.buttonText}
 					onPress={e => handleLog(e)}
 				/>
 			</View>
-		</View>
 	);
 };
 
