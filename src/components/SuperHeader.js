@@ -80,7 +80,7 @@ const SuperHeader = () => {
 					overlayContainerStyle={styles.avatarOverlay}
 					// source={}
 					renderPlaceholderContent={<AvatarPlaceholder name={''} size={'small'} />}
-					onPress={() => route.name === 'Home' ? (nav.navigate('Account'), switchTheme('topka')) : nav.navigate('Settings') }
+					onPress={() => (route.name === 'Home' || route.name === 'Policy' ) ? (nav.navigate('Account'), switchTheme('topka')) : nav.navigate('Settings') }
 				/>}
 			</View>
 		</View>

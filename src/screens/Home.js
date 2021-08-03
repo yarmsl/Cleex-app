@@ -16,14 +16,14 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 16
 	},
 	buttonContainer: {
+		marginBottom: 8,
 		shadowOffset: { width: 0, height: 0 },
 		shadowOpacity: 0.5,
-		shadowRadius: 4,
+		shadowRadius: 10,
 		elevation: 3
 	},
 	button: {
 		backgroundColor: '#fff',
-
 	},
 	buttonText: {
 		color: '#192921'
@@ -46,6 +46,20 @@ const Home = ({navigation}) => {
 			/> ||
 			<SignIn/>}
 
+			<Button
+				title="Пользовательское соглашение"
+				onPress={() => navigation.navigate('Policy', {policy: 'TermOfUse'})}
+				containerStyle={styles.buttonContainer}
+				buttonStyle={styles.button}
+				titleStyle={styles.buttonText}
+			/> 
+			<Button
+				title="Политика конфиденциальности"
+				onPress={() => navigation.navigate('Policy', {policy: 'PersonalData'})}
+				containerStyle={styles.buttonContainer}
+				buttonStyle={styles.button}
+				titleStyle={styles.buttonText}
+			/> 
 		</View>
 	);
 };

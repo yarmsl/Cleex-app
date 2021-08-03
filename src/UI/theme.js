@@ -12,6 +12,8 @@ export const design = {
 		textColor: '#192921',
 		primeColor: '#AA9B71',
 		primeDarkColor: '#c8bc9a',
+		darkColor: '#c4c4c4',
+		darkColorAlpha8: 'rgba(196, 196, 196, 0.8)',
 		button: {
 			light: {
 				backgroundColor: '#EDF1F5',
@@ -55,6 +57,8 @@ export const design = {
 		textColor: '#FFFFFF',
 		primeColor: '#78BBE1',
 		primeDarkColor: '#5c98b9',
+		darkColor: '#2E3435',
+		darkColorAlpha8: 'rgba(46, 52, 53, 0.8)',
 		button: {
 			light: {
 				backgroundColor: '#EDF1F5',
