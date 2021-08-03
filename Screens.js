@@ -14,6 +14,7 @@ import Tables from './src/screens/Tables';
 import MainLayout from './src/layouts/MainLayout';
 import SuperHeader from './src/components/SuperHeader';
 import { Platform } from 'react-native';
+import Policy from './src/screens/Policy';
 
 export default function Screens() {
 
@@ -31,11 +32,12 @@ export default function Screens() {
 						header: () => <SuperHeader />
 					}}>
 						<Stack.Screen name='Home' component={Home} />
+						<Stack.Screen name='Policy' component={Policy} />
 						{isAuth && <>
 							<Stack.Screen name='Account' component={Account} />
 							<Stack.Screen name='Tables' component={Tables} />
 							<Stack.Screen name='Settings' component={Settings} />
-							<Stack.Screen name='Payback' component={Payback} options={{cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS}}/>
+							<Stack.Screen name='Payback' component={Payback} />
 							<Stack.Screen name='RegForm' component={RegForm} />
 						</>}
 					</Stack.Navigator>

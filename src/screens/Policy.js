@@ -1,10 +1,14 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
+import PersonalDataProcessingPolicy from '../components/PersonalDataProcessingPolicy';
+import TermsOfUse from '../components/TermsOfUse';
 
-const Policy = () => {
+const Policy = ({route}) => {
+
     return (
         <ScrollView>
-            <Text>123</Text>
+            {route.params?.policy === 'TermOfUse' && <TermsOfUse/> }
+            {route.params?.policy === 'PersonalData' && <PersonalDataProcessingPolicy/>}
         </ScrollView>
     )
 }
