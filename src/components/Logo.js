@@ -1,10 +1,7 @@
 import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { useTheme } from '../context/ThemeCtx';
 
 const Logo = () => {
-
-    const {theme} = useTheme();
 
     const styles = StyleSheet.create({
         container: {

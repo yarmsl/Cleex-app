@@ -7,7 +7,7 @@ import { vertical } from '../UI/topka/gradients';
 import { styles } from '../UI/topka/Payback_StyleSheet';
 import { addRubbleMark, DismissKeyboard, onlyDigits } from '../lib/services';
 
-const Payback = () => {
+const Payback = ({navigation}) => {
 	const [waiter, setWaiter] = useState({
 		name: 'Имя официанта',
 		photo: null,
@@ -94,14 +94,14 @@ const Payback = () => {
 							<Text style={styles.lightColorText}>Я согласен с условиями </Text>
 							<Text 
 								style={styles.primeColorText}
-								onPress={() => console.log('pp')}
+								onPress={() => navigation.navigate('Policy', {policy: 'TermOfUse'})}
 							>
 								Пользовательского соглашения
 							</Text>
 							<Text style={styles.lightColorText}> и </Text>
 							<Text 
 								style={styles.primeColorText}
-								onPress={() => console.log('pers data')}
+								onPress={() => navigation.navigate('Policy', {policy: 'PersonalData'})}
 							>
 								Политикой обработки персональных данных
 							</Text>
