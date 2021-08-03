@@ -39,7 +39,7 @@ const Payback = ({navigation}) => {
 	return (
 		<DismissKeyboard>
 			<KeyboardAvoidingView
-				behavior={Platform.OS === "ios" ? "position" : "height"}
+				behavior={Platform.OS === "ios" ? "position" : "padding"}
 				keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0}
 				style={styles.container}
 			>
@@ -57,7 +57,6 @@ const Payback = ({navigation}) => {
 					</View>
 				</View>
 				<View style={styles.bottomBlock}>
-					
 					<Input 
 						onBlur={() => blurInputSum()}
 						onFocus={() => setInputSum(onlyDigits(inputSum))}
@@ -67,7 +66,7 @@ const Payback = ({navigation}) => {
 						inputStyle={styles.inputSum}
 						keyboardType='numeric'
 						errorMessage={errorMes}
-						maxLength={4}
+						// maxLength={4} на Андроид мешает рисовать знак рубля
 					/>
 					
 					<Text style={[styles.lightColorText, styles.info]}>{`${minSum} ₽ - минимальная сумма для вывода средств`}</Text>

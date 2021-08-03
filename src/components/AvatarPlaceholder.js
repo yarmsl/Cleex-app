@@ -27,7 +27,8 @@ const AvatarPlaceholder = ({name, size}) => {
 			height: '100%',
 			display: 'flex',
 			alignItems: 'center',
-			justifyContent: 'center'
+			justifyContent: 'center',
+			zIndex: 10
 		 },
 		 initials: {
 			color: '#fff',
