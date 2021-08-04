@@ -8,6 +8,7 @@ import { getDataByPost } from '../lib/fetch';
 const styles = StyleSheet.create({
 	signin: {
 		width: '100%',
+		marginBottom: 32,
 		backgroundColor: '#fff',
 		borderRadius: 8,
 		paddingHorizontal: 16,

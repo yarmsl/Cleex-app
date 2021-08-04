@@ -13,7 +13,6 @@ import Home from './src/screens/Home';
 import Tables from './src/screens/Tables';
 import MainLayout from './src/layouts/MainLayout';
 import SuperHeader from './src/components/SuperHeader';
-import { Platform } from 'react-native';
 import Policy from './src/screens/Policy';
 
 export default function Screens() {
@@ -27,7 +26,7 @@ export default function Screens() {
 			<NavigationContainer>
 				<MainLayout>
 					<Stack.Navigator headerMode='float' screenOptions={{
-						cardStyleInterpolator: Platform.OS === 'ios' ? CardStyleInterpolators.forScaleFromCenterAndroid : CardStyleInterpolators.forScaleFromCenterAndroid,
+						cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid,
 						cardStyle: { backgroundColor: 'transparent'},
 						header: () => <SuperHeader />
 					}}>
