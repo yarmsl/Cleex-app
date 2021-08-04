@@ -83,8 +83,8 @@ const Settings = () => {
 				<View style={styles.waiter}>
 					<View>
 						<Avatar
-							containerStyle={styles.avatar.container}
-							overlayContainerStyle={styles.avatar.overlay}
+							containerStyle={styles.avatarContainer}
+							overlayContainerStyle={styles.avatarOverlay}
 							source={waiter.photo ? { uri: waiter.photo } : null}
 							renderPlaceholderContent={<AvatarPlaceholder name={waiter.name} size={'large'} />}
 						/>
@@ -95,7 +95,7 @@ const Settings = () => {
 								type='entypo'
 								color='#fff'
 								size={40}
-								iconStyle={menu ? styles.avatar.cross : styles.avatar.plus}
+								iconStyle={menu ? styles.cross : styles.plus}
 							/>
 							{
 								menu &&
@@ -126,26 +126,26 @@ const Settings = () => {
 					<Input
 						label='Имя'
 						placeholder='Введите имя'
-						inputContainerStyle={styles.input.inputContainer}
-						inputStyle={styles.input.input}
-						labelStyle={styles.input.label}
+						inputContainerStyle={styles.inputContainer}
+						inputStyle={styles.input}
+						labelStyle={styles.inputLabel}
 						value={name}
 						onChangeText={setName}
 					/>
 					<Input
 						label='Девиз'
 						placeholder='Введите девиз'
-						inputContainerStyle={styles.input.inputContainer}
-						inputStyle={styles.input.input}
-						labelStyle={styles.input.label}
+						inputContainerStyle={styles.inputContainer}
+						inputStyle={styles.input}
+						labelStyle={styles.inputLabel}
 						value={motto}
 						onChangeText={setMotto}
 					/>
 					{saveBtn && <Button
 						onPress={() => handleSave()}
 						title='Сохранить'
-						buttonStyle={styles.button.button}
-						titleStyle={styles.button.title}
+						buttonStyle={styles.button}
+						titleStyle={styles.buttonTitle}
 						ViewComponent={LinearGradient}
 						linearGradientProps={vertical.blue}
 					/>}

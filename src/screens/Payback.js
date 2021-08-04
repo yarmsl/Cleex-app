@@ -66,7 +66,7 @@ const Payback = ({navigation}) => {
 						inputStyle={styles.inputSum}
 						keyboardType='numeric'
 						errorMessage={errorMes}
-						// maxLength={4} на Андроид мешает рисовать знак рубля
+						maxLength={6} на Андроид мешает рисовать знак рубля
 					/>
 					
 					<Text style={[styles.lightColorText, styles.info]}>{`${minSum} ₽ - минимальная сумма для вывода средств`}</Text>
@@ -93,14 +93,14 @@ const Payback = ({navigation}) => {
 							<Text style={styles.lightColorText}>Я согласен с условиями </Text>
 							<Text 
 								style={styles.primeColorText}
-								onPress={() => navigation.navigate('Policy', {policy: 'TermOfUse'})}
+								onPress={() => navigation.push('Policy', {policy: 'TermOfUse'})}
 							>
 								Пользовательского соглашения
 							</Text>
 							<Text style={styles.lightColorText}> и </Text>
 							<Text 
 								style={styles.primeColorText}
-								onPress={() => navigation.navigate('Policy', {policy: 'PersonalData'})}
+								onPress={() => navigation.push('Policy', {policy: 'PersonalData'})}
 							>
 								Политикой обработки персональных данных
 							</Text>

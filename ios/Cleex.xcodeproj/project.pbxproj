@@ -487,12 +487,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CE9E1566528332B746876247 /* Pods-Cleex.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cleex/Cleex.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 64HC6HGXN4;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Cleex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -515,7 +515,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1BAC3E3B1A2C55DCC72B2AC6 /* Pods-Cleex.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cleex/Cleex.entitlements;
 				CURRENT_PROJECT_VERSION = 1;

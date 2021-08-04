@@ -1,4 +1,7 @@
-export const styles = {
+import React from 'react'
+import { StyleSheet } from "react-native";
+
+export const styles = StyleSheet.create({
 	root: {
 		paddingBottom: 32,
 	},
@@ -19,25 +22,23 @@ export const styles = {
 		flexDirection: 'column',
 		alignItems: 'center'
 	},
-	avatar: {
-		container: {
-			width: 120,
-			height: 120,
-			shadowOffset: { width: 0, height: 4 },
-			shadowOpacity: 0.5,
-			shadowRadius: 10,
-		},
-		overlay: {
-			borderRadius: 100,
-			backgroundColor: '#78bbe1',
+	avatarContainer: {
+		width: 120,
+		height: 120,
+		shadowOffset: { width: 0, height: 4 },
+		shadowOpacity: 0.5,
+		shadowRadius: 10,
+	},
+	avatarOverlay: {
+		borderRadius: 100,
+		backgroundColor: '#78bbe1',
 
-		},
-		plus: {
-			transform: [{ rotateZ: '0deg' }]
-		},
-		cross: {
-			transform: [{ rotateZ: '45deg' }]
-		},
+	},
+	plus: {
+		transform: [{ rotateZ: '0deg' }]
+	},
+	cross: {
+		transform: [{ rotateZ: '45deg' }]
 	},
 	addphoto: {
 		backgroundColor: 'rgba(25,32,33,0.123)',
@@ -87,35 +88,26 @@ export const styles = {
 		shadowRadius: 10,
 		elevation: 6
 	},
+	inputContainer: {
+		borderColor: '#78bbe1',
+		borderBottomWidth: 2,
+		marginVertical: 6
+	},
+	inputLabel: {
+		color: '#fff'
+	},
 	input: {
-		inputContainer: {
-			borderColor: '#78bbe1',
-			borderBottomWidth: 2,
-			marginVertical: 6
-		},
-		label: {
-			color: '#fff'
-		},
-		input: {
-			color: '#fff'
-		}
+		color: '#fff'
 	},
 	button: {
-		button: {
-			borderRadius: 12,
-		},
-		title: {
-			fontSize: 14,
-			fontWeight: 'bold',
-			color: '#fff',
-			textTransform: 'uppercase',
-			paddingHorizontal: 32,
-			paddingVertical: 6
-		},
-		disabled: {
-			title: {
-				color: '#000'
-			}
-		}
+		borderRadius: 12,
 	},
-};
+	buttonTitle: {
+		fontSize: 14,
+		fontWeight: 'bold',
+		color: '#fff',
+		textTransform: 'uppercase',
+		paddingHorizontal: 32,
+		paddingVertical: 6
+	},
+});
