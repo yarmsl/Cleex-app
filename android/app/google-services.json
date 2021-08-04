@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "623165240687",
+    "project_id": "cleex-android-app",
+    "storage_bucket": "cleex-android-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:623165240687:android:dd28095347e00cb7caa49a",
+        "android_client_info": {
+          "package_name": "com.cleex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "623165240687-slh9j4kqu7i6nh3nd3lin7ud7nfrgc3v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKi6lvISdh9d4IEsMkWXcreW3Z5ejl5Lw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "623165240687-slh9j4kqu7i6nh3nd3lin7ud7nfrgc3v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
