@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Button } from 'react-native-elements';
+import { Button, Input } from 'react-native-elements';
 import SignIn from '../components/SignIn';
 import { useAuth } from '../context/AuthCtx';
 import { useTheme } from '../context/ThemeCtx';
+import messaging from '@react-native-firebase/messaging';
 
 const styles = StyleSheet.create({
 	container: {
@@ -33,6 +34,12 @@ const styles = StyleSheet.create({
 const Home = ({navigation}) => {
 	const {isAuth} = useAuth();
 	const {switchTheme} = useTheme();
+	const [tok, setTok] = useState('init');
+
+	const testPush = async() => {
+		const data = await messaging().getToken();
+		return data
+	}
 
 	return (
 		<View style={styles.container}>
@@ -60,6 +67,14 @@ const Home = ({navigation}) => {
 				buttonStyle={styles.button}
 				titleStyle={styles.buttonText}
 			/> 
+			<Button
+				title="TEST"
+				onPress={() => testPush().then(r => {setTok(r), console.log(r)})}
+				containerStyle={styles.buttonContainer}
+				buttonStyle={styles.button}
+				titleStyle={styles.buttonText}
+			/> 
+			<Input value={tok} />
 		</View>
 	);
 };

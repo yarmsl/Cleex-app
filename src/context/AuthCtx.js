@@ -20,7 +20,6 @@ const reducer = (isAuth, action) => {
 };
 
 const AuthProvider = ({children}) => {
-    
     const [isAuth, dispatch] = useReducer(reducer, false);
     const [userId, setUserId] = useState('');
     const logIn = () => dispatch({type: LOGIN});

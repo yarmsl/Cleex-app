@@ -2,10 +2,10 @@ require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
 platform :ios, '10.0'
-pod 'Firebase/Messaging'
+$FirebaseSDKVersion = '8.0.0'
 target 'Cleex' do
   config = use_native_modules!
-
+  pod 'RNFBMessaging', :path => '../node_modules/@react-native-firebase/messaging'
   use_react_native!(
     :path => config[:reactNativePath],
     # to enable hermes on iOS, change `false` to `true` and then install pods
