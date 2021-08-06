@@ -4,7 +4,7 @@ import { Button, Input } from 'react-native-elements';
 import SignIn from '../components/SignIn';
 import { useAuth } from '../context/AuthCtx';
 import { useTheme } from '../context/ThemeCtx';
-import messaging from '@react-native-firebase/messaging';
+import { getToken } from '../lib/pushNotif';
 
 const styles = StyleSheet.create({
 	container: {
@@ -36,11 +36,6 @@ const Home = ({navigation}) => {
 	const {switchTheme} = useTheme();
 	const [tok, setTok] = useState('init');
 
-	const testPush = async() => {
-		const data = await messaging().getToken();
-		return data
-	}
-
 	return (
 		<View style={styles.container}>
 			
@@ -69,7 +64,7 @@ const Home = ({navigation}) => {
 			/> 
 			<Button
 				title="TEST"
-				onPress={() => testPush().then(r => {setTok(r), console.log(r)})}
+				onPress={() => getToken().then((r) => {console.log(r), setTok(r)})}
 				containerStyle={styles.buttonContainer}
 				buttonStyle={styles.button}
 				titleStyle={styles.buttonText}
