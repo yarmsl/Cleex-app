@@ -15,7 +15,7 @@ export const getDataByPost = async(url, obj) => {
 
 export const getData = async(url) => {
     const data = await fetch(url)
-    .then(r => r.json)
+    .then(r => r.json())
     .catch(e => console.error(e))
     return await data;
 }
