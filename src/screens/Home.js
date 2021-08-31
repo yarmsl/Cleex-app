@@ -4,6 +4,7 @@ import { Button, Input } from 'react-native-elements';
 import SignIn from '../components/SignIn';
 import { useAuth } from '../context/AuthCtx';
 import { useTheme } from '../context/ThemeCtx';
+import { getDataByPost } from '../lib/fetch';
 import { getToken } from '../lib/pushNotif';
 
 const styles = StyleSheet.create({

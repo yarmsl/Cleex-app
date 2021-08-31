@@ -10,6 +10,7 @@ export const getDataByPost = async(url, obj) => {
     })
     .then(r => r.json())
     .catch(e => console.error(e))
+    console.log(data)
     return await data;
 }
 
